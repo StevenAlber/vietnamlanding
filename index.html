@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VietnamLanding — Buyer-side entry intelligence for Vietnam</title>
   <meta name="description" content="Premium English-first advisory platform for foreign buyers, founders, and relocating families entering Vietnam through property intelligence, due diligence, and structured local coordination." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f7f2e9;
       --bg-soft: #eee4d6;
-      --surface: rgba(255, 255, 255, 0.82);
-      --surface-strong: rgba(255, 255, 255, 0.92);
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: rgba(255, 255, 255, 0.94);
       --ink: #121a17;
       --ink-soft: #31403a;
       --muted: #62716a;
@@ -26,7 +29,7 @@
       --line-gold: rgba(184, 154, 104, 0.26);
       --shadow-soft: 0 12px 30px rgba(9, 18, 15, 0.06);
       --shadow-card: 0 18px 44px rgba(9, 18, 15, 0.08);
-      --shadow-deep: 0 28px 80px rgba(9, 18, 15, 0.18);
+      --shadow-deep: 0 34px 92px rgba(9, 18, 15, 0.22);
       --radius-sm: 10px;
       --radius-md: 18px;
       --radius-lg: 28px;
@@ -43,13 +46,13 @@
         radial-gradient(circle at top left, rgba(184,154,104,0.08), transparent 28%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
       color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    p, a, li, button, input, textarea, .sans, .nav, .eyebrow, .kicker, .step-no {
-      font-family: Arial, Helvetica, sans-serif;
+    p, a, li, button, input, textarea, .sans, .nav, .eyebrow, .kicker, .step-no, .service-price, .brand-sub {
+      font-family: "Inter", Arial, sans-serif;
     }
 
     img { max-width: 100%; display: block; }
@@ -64,7 +67,7 @@
       position: sticky;
       top: 0;
       z-index: 60;
-      background: rgba(247, 242, 233, 0.74);
+      background: rgba(247, 242, 233, 0.78);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(18, 26, 23, 0.06);
     }
@@ -78,7 +81,9 @@
     }
 
     .brand-title {
-      font-size: 31px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 35px;
+      font-weight: 600;
       line-height: 1;
       letter-spacing: -0.03em;
       color: var(--emerald-deep);
@@ -96,6 +101,7 @@
       display: flex;
       gap: 26px;
       font-size: 14px;
+      font-weight: 500;
       color: var(--muted);
     }
 
@@ -109,7 +115,7 @@
         radial-gradient(circle at 10% 10%, rgba(184,154,104,0.14), transparent 26%),
         radial-gradient(circle at 84% 12%, rgba(36,82,64,0.08), transparent 24%),
         linear-gradient(180deg, #f8f4ec 0%, #ece2d4 100%);
-      padding: 86px 0 60px;
+      padding: 94px 0 72px;
     }
 
     .hero::after {
@@ -125,8 +131,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.14fr) minmax(360px, 0.86fr);
-      gap: 40px;
+      grid-template-columns: minmax(0, 1.16fr) minmax(360px, 0.84fr);
+      gap: 42px;
       align-items: center;
     }
 
@@ -137,26 +143,38 @@
       padding: 10px 15px;
       border-radius: 999px;
       border: 1px solid var(--line-gold);
-      background: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.62);
       color: var(--emerald-deep);
       font-size: 13px;
+      font-weight: 500;
       backdrop-filter: blur(8px);
     }
 
     .eyebrow-dot {
-      width: 8px;
-      height: 8px;
+      width: 12px;
+      height: 12px;
       border-radius: 999px;
       background: var(--gold);
       box-shadow: 0 0 0 5px rgba(184,154,104,0.12);
       flex: 0 0 auto;
     }
 
+    h1,
+    h2,
+    h3,
+    .section-title,
+    .service-name,
+    .step-title,
+    .brand-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+    }
+
     h1 {
       margin: 24px 0 0;
-      font-size: clamp(54px, 8vw, 96px);
-      line-height: 0.92;
-      letter-spacing: -0.06em;
+      font-size: clamp(58px, 8vw, 94px);
+      line-height: 0.98;
+      letter-spacing: -0.038em;
       color: var(--emerald-deep);
     }
 
@@ -164,13 +182,14 @@
       display: block;
       color: var(--gold);
       font-style: italic;
+      font-weight: 500;
     }
 
     .lead {
       margin-top: 24px;
       max-width: 760px;
-      font-size: 20px;
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.82;
       color: var(--ink-soft);
     }
 
@@ -191,6 +210,7 @@
       border: 1px solid transparent;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
       font-size: 15px;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -216,7 +236,7 @@
     .btn-secondary:hover { background: rgba(255,255,255,0.86); }
 
     .principles {
-      margin-top: 36px;
+      margin-top: 38px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
@@ -244,9 +264,10 @@
 
     .hero-side {
       position: relative;
-      padding: 34px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(243,236,225,0.94));
+      padding: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(243,236,225,0.95));
       min-height: 100%;
+      animation: subtle-float 5s ease-in-out infinite;
     }
 
     .hero-side::before {
@@ -259,32 +280,35 @@
     }
 
     .kicker {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.22em;
+      font-weight: 600;
       color: var(--gold);
     }
 
     .hero-side h2,
     .section-title {
       margin: 14px 0 0;
-      font-size: clamp(34px, 4vw, 56px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+      font-size: clamp(30px, 3.8vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       color: var(--emerald-deep);
     }
 
     .hero-side p,
     .section-copy,
     .card p,
-    .signal-card p {
+    .signal-card p,
+    .mist-panel p,
+    .dark-panel p {
       margin-top: 16px;
       font-size: 15px;
-      line-height: 1.85;
+      line-height: 1.86;
       color: var(--ink-soft);
     }
 
-    section.block { padding: 30px 0; }
+    section.block { padding: 42px 0; }
 
     .split {
       display: grid;
@@ -294,17 +318,36 @@
     }
 
     .dark-panel {
-      background: linear-gradient(160deg, #17382c 0%, #10241d 100%);
+      position: relative;
+      background: linear-gradient(160deg, #1a4032 0%, #143026 100%);
       color: #fff;
-      border: 1px solid rgba(184,154,104,0.18);
+      border: 1px solid rgba(184,154,104,0.30);
       border-radius: 30px;
-      padding: 36px;
+      padding: 38px;
       box-shadow: var(--shadow-deep);
     }
 
+    .dark-panel::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: radial-gradient(circle at center, rgba(184,154,104,0.08), transparent 80%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
     .dark-panel .kicker { color: var(--gold-soft); }
-    .dark-panel h2 { color: #fff; margin-top: 14px; font-size: clamp(34px, 4vw, 52px); line-height: 1.03; letter-spacing: -0.04em; }
-    .dark-panel p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.85; }
+
+    .dark-panel h2 {
+      color: #fff;
+      margin-top: 14px;
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .dark-panel p { color: rgba(255,255,255,0.82); }
 
     .problem-grid {
       display: grid;
@@ -319,8 +362,9 @@
       background: linear-gradient(180deg, rgba(248,244,236,0.92), rgba(255,255,255,0.94));
       border: 1px solid rgba(18,26,23,0.07);
       color: var(--ink-soft);
-      font-size: 14px;
-      line-height: 1.7;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.62;
     }
 
     .list-card {
@@ -346,7 +390,7 @@
     }
 
     .services-grid {
-      margin-top: 28px;
+      margin-top: 30px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
@@ -359,6 +403,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 68px rgba(10,22,19,0.16);
     }
 
     .service-card.featured {
@@ -368,21 +418,28 @@
       box-shadow: 0 22px 54px rgba(10,22,19,0.22);
     }
 
+    .service-card.featured:hover {
+      transform: scale(1.02);
+      box-shadow: 0 34px 80px rgba(10,22,19,0.28);
+    }
+
     .service-kicker {
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      font-family: "Inter", Arial, sans-serif;
+      font-weight: 600;
       color: var(--gold);
     }
 
-    .featured .service-kicker { color: var(--gold-soft); }
+    .featured .service-kicker { color: #e8d4a8; }
 
     .service-name {
       margin-top: 14px;
-      font-size: 28px;
+      font-size: 31px;
       line-height: 1.08;
       color: var(--emerald-deep);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.028em;
     }
 
     .featured .service-name,
@@ -390,7 +447,7 @@
 
     .service-price {
       margin-top: 14px;
-      font-size: 40px;
+      font-size: 38px;
       line-height: 1;
       color: var(--emerald-rich);
       letter-spacing: -0.03em;
@@ -406,7 +463,7 @@
       margin-bottom: 10px;
       color: var(--ink-soft);
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
     .featured .service-points li { color: rgba(255,255,255,0.84); }
@@ -442,15 +499,16 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.22em;
+      font-weight: 600;
       color: var(--gold);
     }
 
     .step-title {
       margin-top: 12px;
       color: var(--emerald-deep);
-      font-size: 24px;
+      font-size: 26px;
       line-height: 1.18;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.028em;
     }
 
     .signal-grid {
@@ -467,15 +525,14 @@
 
     .signal-card h3 {
       margin: 14px 0 0;
-      font-size: 28px;
+      font-size: 31px;
       line-height: 1.08;
       color: var(--emerald-deep);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.028em;
     }
 
-    /* ===== CTA PANEL ===== */
     .cta-section {
-      padding: 28px 0 56px;
+      padding: 32px 0 56px;
     }
 
     .cta-panel {
@@ -543,8 +600,9 @@
       border-radius: 16px;
       background: linear-gradient(135deg, #e0c895, var(--gold));
       color: #18211d;
+      font-family: "Inter", Arial, sans-serif;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       border: 0;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -563,6 +621,11 @@
       font-size: 13px;
     }
 
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
     @media (max-width: 1080px) {
       .hero-grid,
       .split,
@@ -570,13 +633,16 @@
       .cta-grid {
         grid-template-columns: 1fr;
       }
+
       .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
       .steps-grid,
       .signal-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
       .cta-box { min-height: auto; }
       .cta-grid { gap: 18px; }
     }
@@ -585,8 +651,53 @@
       .nav { display: none; }
 
       .hero {
-        padding-top: 50px;
-        padding-bottom: 44px;
+        padding: 44px 0 36px;
+      }
+
+      .hero-grid {
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 46px;
+        line-height: 0.98;
+      }
+
+      .lead {
+        font-size: 17px;
+        line-height: 1.74;
+      }
+
+      .cta-row {
+        margin-top: 24px;
+      }
+
+      .principles {
+        margin-top: 24px;
+        gap: 8px;
+        max-width: none;
+      }
+
+      .pill-card {
+        padding: 14px 18px;
+        font-size: 15px;
+        min-height: auto;
+      }
+
+      .hero-side {
+        padding: 22px 20px;
+        animation: none;
+        min-height: auto;
+      }
+
+      .hero-side h2 {
+        font-size: 29px;
+        line-height: 1.12;
+        overflow-wrap: break-word;
+      }
+
+      .hero-side p {
+        overflow-wrap: break-word;
       }
 
       .principles,
@@ -604,11 +715,9 @@
         padding: 24px;
       }
 
-      .brand-title { font-size: 26px; }
-      .lead { font-size: 18px; }
+      .brand-title { font-size: 30px; }
       .service-price { font-size: 34px; }
 
-      /* CTA full-bleed on mobile */
       .cta-section {
         padding: 28px 0 0;
       }
@@ -928,7 +1037,7 @@
                 <li>Korean planned as the first secondary language.</li>
                 <li>Direct developer commissions: none.</li>
               </ul>
-              <a class="btn-gold" href="mailto:hello@vietnamlanding.com?subject=VietnamLanding%20Private%20Review">Apply for intake review</a>
+              <a class="btn-gold" href="/cdn-cgi/l/email-protection#f199949d9d9eb1879894859f909c9d909f95989f96df929e9cce8284939b949285cca79894859f909cbd909f95989f96d4c3c1a1839887908594d4c3c1a39487989486">Apply for intake review</a>
             </div>
           </div>
         </div>
@@ -937,7 +1046,7 @@
   </main>
 
   <footer class="footer sans">
-    VietnamLanding — independent entry intelligence for foreign buyers, founders, and relocating families entering Vietnam.
+    VietnamLanding — independent entry intelligence for foreig
   </footer>
 </body>
 </html>

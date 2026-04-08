@@ -249,7 +249,8 @@
     @media (max-width: 760px) {
       .form-hero { padding: 44px 0 28px; }
       .form-card { padding: 24px; border-radius: 20px; }
-      .row { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; gap: 0; }
+      .field { margin-bottom: 20px !important; }
       .brand-title { font-size: 26px; }
     }
   </style>
@@ -402,8 +403,8 @@
           <div class="form-section">
             <div class="form-section-title">Tell us more</div>
             <div class="field">
-              <label for="message">What would you like help with?</label>
-              <textarea id="message" name="message" placeholder="Describe your situation, goals, concerns, or any specific questions you have about entering Vietnam."></textarea>
+              <label class="required" for="message">What would you like help with?</label>
+              <textarea id="message" name="message" required placeholder="Describe your situation, goals, concerns, or any specific questions you have about entering Vietnam."></textarea>
             </div>
             <div class="field">
               <label for="referral">How did you find VietnamLanding?</label>
@@ -440,20 +441,38 @@
   function validateForm() {
     var fields = document.querySelectorAll('[required]');
     var first = null;
+    // Clear old errors
+    document.querySelectorAll('.field-error').forEach(function(e) { e.remove(); });
     fields.forEach(function(f) {
       f.style.borderColor = '';
+    });
+    fields.forEach(function(f) {
       if (!f.value) {
         f.style.borderColor = '#c0785e';
+        f.style.boxShadow = '0 0 0 3px rgba(192,120,94,0.15)';
+        var err = document.createElement('div');
+        err.className = 'field-error';
+        err.style.cssText = 'color:#c0785e;font-size:12px;margin-top:4px;font-family:Inter,Arial,sans-serif;';
+        err.textContent = 'This field is required';
+        f.parentNode.appendChild(err);
         if (!first) first = f;
       }
     });
     if (first) {
       first.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      alert('Please fill in all required fields.');
       return false;
     }
     return true;
   }
+  // Clear error on input
+  document.querySelectorAll('[required]').forEach(function(f) {
+    f.addEventListener('change', function() {
+      this.style.borderColor = '';
+      this.style.boxShadow = '';
+      var err = this.parentNode.querySelector('.field-error');
+      if (err) err.remove();
+    });
+  });
   </script>
 </body>
 </html>

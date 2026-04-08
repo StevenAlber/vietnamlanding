@@ -11,33 +11,26 @@
       --bg-soft: #eee4d6;
       --surface: rgba(255, 255, 255, 0.82);
       --surface-strong: rgba(255, 255, 255, 0.92);
-
       --ink: #121a17;
       --ink-soft: #31403a;
       --muted: #62716a;
-
       --emerald-deep: #0b1714;
       --emerald-rich: #17382c;
       --emerald-mid: #245240;
       --emerald-soft: #356b55;
-
       --gold: #b89a68;
       --gold-soft: #d8c3a0;
       --champagne: #e6d9c2;
-
       --line: rgba(18, 26, 23, 0.08);
       --line-strong: rgba(18, 26, 23, 0.12);
       --line-gold: rgba(184, 154, 104, 0.26);
-
       --shadow-soft: 0 12px 30px rgba(9, 18, 15, 0.06);
       --shadow-card: 0 18px 44px rgba(9, 18, 15, 0.08);
       --shadow-deep: 0 28px 80px rgba(9, 18, 15, 0.18);
-
       --radius-sm: 10px;
       --radius-md: 18px;
       --radius-lg: 28px;
       --radius-xl: 34px;
-
       --container: 1200px;
     }
 
@@ -106,10 +99,7 @@
       color: var(--muted);
     }
 
-    .nav a {
-      transition: color 0.2s ease;
-    }
-
+    .nav a { transition: color 0.2s ease; }
     .nav a:hover { color: var(--emerald-rich); }
 
     .hero {
@@ -223,9 +213,7 @@
       backdrop-filter: blur(8px);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.86);
-    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.86); }
 
     .principles {
       margin-top: 36px;
@@ -257,8 +245,7 @@
     .hero-side {
       position: relative;
       padding: 34px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.86), rgba(243,236,225,0.94));
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(243,236,225,0.94));
       min-height: 100%;
     }
 
@@ -316,18 +303,8 @@
     }
 
     .dark-panel .kicker { color: var(--gold-soft); }
-    .dark-panel h2 {
-      color: #fff;
-      margin-top: 14px;
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 1.03;
-      letter-spacing: -0.04em;
-    }
-    .dark-panel p {
-      color: rgba(255,255,255,0.82);
-      font-size: 15px;
-      line-height: 1.85;
-    }
+    .dark-panel h2 { color: #fff; margin-top: 14px; font-size: clamp(34px, 4vw, 52px); line-height: 1.03; letter-spacing: -0.04em; }
+    .dark-panel p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.85; }
 
     .problem-grid {
       display: grid;
@@ -496,8 +473,12 @@
       letter-spacing: -0.03em;
     }
 
+    /* ===== CTA PANEL ===== */
+    .cta-section {
+      padding: 28px 0 56px;
+    }
+
     .cta-panel {
-      margin: 28px 0 56px;
       border-radius: 34px;
       padding: 46px;
       background: linear-gradient(160deg, #17382c 0%, #10241d 100%);
@@ -589,19 +570,15 @@
       .cta-grid {
         grid-template-columns: 1fr;
       }
-
       .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
       .steps-grid,
       .signal-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .cta-box {
-        min-height: auto;
-      }
+      .cta-box { min-height: auto; }
+      .cta-grid { gap: 18px; }
     }
 
     @media (max-width: 760px) {
@@ -623,21 +600,35 @@
       .hero-side,
       .list-card,
       .mist-panel,
-      .dark-panel,
-      .cta-panel {
+      .dark-panel {
         padding: 24px;
-      }
-
-      .cta-box {
-        padding: 20px;
       }
 
       .brand-title { font-size: 26px; }
       .lead { font-size: 18px; }
       .service-price { font-size: 34px; }
 
-      .cta-grid {
-        gap: 18px;
+      /* CTA full-bleed on mobile */
+      .cta-section {
+        padding: 28px 0 0;
+      }
+
+      .cta-section > .container {
+        width: 100%;
+        padding: 0;
+      }
+
+      .cta-panel {
+        border-radius: 0;
+        padding: 32px 20px 40px;
+      }
+
+      .cta-box {
+        padding: 20px;
+      }
+
+      .footer {
+        padding: 28px 20px;
       }
     }
   </style>
@@ -710,7 +701,7 @@
           <div class="kicker">Flagship market focus</div>
           <h2>Làng Vân / Hải Vân Bay as a live case, not a blind recommendation.</h2>
           <p>
-            We begin with one of Vietnam’s most visually compelling new coastal developments because it captures
+            We begin with one of Vietnam's most visually compelling new coastal developments because it captures
             the real tension of this market: scale, beauty, timing, ambition, and the need for independent
             verification before enthusiasm turns into exposure.
           </p>
@@ -918,25 +909,27 @@
       </div>
     </section>
 
-    <section id="apply" class="block">
-      <div class="container cta-panel">
-        <div class="cta-grid">
-          <div>
-            <div class="kicker" style="color: var(--gold-soft);">Private intake</div>
-            <h2>Request a confidential first review.</h2>
-            <p class="sans">
-              The first version of VietnamLanding is designed as a selective advisory entry point, not a public listing
-              portal. If your objective is serious, structured, and time-sensitive, this is where the conversation begins.
-            </p>
-          </div>
-          <div class="cta-box">
-            <ul>
-              <li>Initial engagement starts with a short qualification intake.</li>
-              <li>English-first launch.</li>
-              <li>Korean planned as the first secondary language.</li>
-              <li>Direct developer commissions: none.</li>
-            </ul>
-            <a class="btn-gold" href="mailto:hello@vietnamlanding.com?subject=VietnamLanding%20Private%20Review">Apply for intake review</a>
+    <section id="apply" class="cta-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-grid">
+            <div>
+              <div class="kicker" style="color: var(--gold-soft);">Private intake</div>
+              <h2>Request a confidential first review.</h2>
+              <p class="sans">
+                The first version of VietnamLanding is designed as a selective advisory entry point, not a public listing
+                portal. If your objective is serious, structured, and time-sensitive, this is where the conversation begins.
+              </p>
+            </div>
+            <div class="cta-box">
+              <ul>
+                <li>Initial engagement starts with a short qualification intake.</li>
+                <li>English-first launch.</li>
+                <li>Korean planned as the first secondary language.</li>
+                <li>Direct developer commissions: none.</li>
+              </ul>
+              <a class="btn-gold" href="mailto:hello@vietnamlanding.com?subject=VietnamLanding%20Private%20Review">Apply for intake review</a>
+            </div>
           </div>
         </div>
       </div>

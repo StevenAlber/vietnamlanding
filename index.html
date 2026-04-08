@@ -1,311 +1,733 @@
-export default function VietnamLandingFirstVersion() {
-  const services = [
-    {
-      name: "Initial Intelligence Brief",
-      price: "$850",
-      subtitle: "A fast strategic entry point",
-      points: [
-        "City or project-first orientation memo",
-        "Foreign-buyer framework summary",
-        "Risk flags before any trip or deposit",
-        "Best for early-stage buyers and relocating families",
-      ],
-    },
-    {
-      name: "Project Due Diligence Review",
-      price: "$3,500+",
-      subtitle: "When a specific project is already on the table",
-      points: [
-        "Developer and project intelligence review",
-        "Foreign-eligibility and quota logic mapping",
-        "Title / Pink Book / structure risk questions",
-        "Written issue-spotting memo for your lawyer",
-      ],
-    },
-    {
-      name: "Navigator Engagement",
-      price: "from $7,500",
-      subtitle: "Our core premium route",
-      points: [
-        "Property + residency + setup coordination",
-        "Shortlist review and market positioning",
-        "Licensed-partner coordination in Vietnam",
-        "For serious buyers, founders, and relocating households",
-      ],
-      featured: true,
-    },
-    {
-      name: "Private Mandate",
-      price: "from $9,500",
-      subtitle: "For more complex entries",
-      points: [
-        "Multi-step relocation and acquisition support",
-        "Higher-complexity family or founder pathways",
-        "Extended coordination horizon",
-        "Limited intake, custom scope only",
-      ],
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VietnamLanding — Independent entry intelligence for foreign buyers</title>
+  <meta name="description" content="Premium English-first advisory platform for foreign buyers, founders, and relocating families entering Vietnam through property intelligence, due diligence, and structured local coordination." />
+  <style>
+    :root {
+      --canopy: #1F4D3A;
+      --canopy-dark: #183b2d;
+      --rice: #F4EEDF;
+      --jade: #6E9F8D;
+      --shadow: #23332B;
+      --gold: #C8A96B;
+      --mist: #E9EFEA;
+      --line: #D8D1C4;
+      --card: rgba(255,255,255,0.72);
+      --card-2: #F8F5EE;
+      --white: #ffffff;
+    }
 
-  const principles = [
-    "Fee-based. No developer commissions.",
-    "Buyer-side intelligence, not broker pressure.",
-    "English-first, international, selective.",
-    "Execution handled by licensed Vietnamese professionals where required.",
-  ];
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--rice);
+      color: var(--shadow);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-  const problems = [
-    "Foreign quota issues discovered too late",
-    "Projects marketed beautifully but legally framed poorly",
-    "No reliable price benchmark for negotiation",
-    "Pink Book expectations misunderstood",
-    "Broker incentives misaligned with the buyer",
-    "Time and money wasted on exploratory trips with no decision framework",
-  ];
+    p, li, a, button, input, textarea, .sans {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-  const process = [
-    "Qualification and strategic intake",
-    "Market and project framing",
-    "Foreign-buyer eligibility review",
-    "Risk memo and document map",
-    "Licensed local partner coordination where needed",
-    "Decision support before money moves",
-  ];
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-  return (
-    <div className="min-h-screen bg-[#F4EEDF] text-[#23332B]">
-      <div className="border-b border-[#D8D1C4] bg-[#F4EEDF]/95 backdrop-blur sticky top-0 z-20">
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-          <div>
-            <div className="text-2xl font-serif tracking-wide text-[#1F4D3A]">VietnamLanding</div>
-            <div className="text-xs uppercase tracking-[0.22em] text-[#6E9F8D] mt-1">Independent entry intelligence for foreign buyers</div>
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244, 238, 223, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-title {
+      font-size: 30px;
+      color: var(--canopy);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--jade);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav a:hover { color: var(--canopy); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0 42px;
+      background:
+        radial-gradient(circle at top left, rgba(110,159,141,0.22), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(31,77,58,0.12), transparent 32%),
+        var(--rice);
+    }
+
+    .grid-hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(200,169,107,0.38);
+      background: rgba(255,255,255,0.45);
+      font-size: 14px;
+      color: var(--canopy);
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin: 22px 0 0;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 0.95;
+      color: var(--canopy);
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 span { color: var(--shadow); display: block; }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 760px;
+      font-size: 20px;
+      line-height: 1.75;
+      color: #33453C;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 22px;
+      border-radius: 18px;
+      font-size: 15px;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--canopy);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: var(--canopy-dark); }
+
+    .btn-secondary {
+      border-color: var(--canopy);
+      color: var(--canopy);
+      background: transparent;
+    }
+
+    .btn-secondary:hover { background: rgba(31,77,58,0.06); }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+      max-width: 800px;
+    }
+
+    .pill-card, .card, .service-card, .step-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 28px;
+    }
+
+    .pill-card {
+      padding: 18px 18px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .card {
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(35, 51, 43, 0.04);
+    }
+
+    .side-card .kicker,
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--jade);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .side-card h2,
+    .section-title {
+      margin: 14px 0 0;
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.02;
+      color: var(--canopy);
+      letter-spacing: -0.03em;
+    }
+
+    .side-card p,
+    .section-copy {
+      margin: 16px 0 0;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #33453C;
+    }
+
+    section.block { padding: 22px 0; }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .dark-card {
+      background: var(--canopy);
+      color: var(--white);
+      border: 1px solid var(--canopy);
+      border-radius: 30px;
+      padding: 34px;
+    }
+
+    .dark-card .section-kicker { color: var(--gold); }
+    .dark-card h2, .dark-card h3 { color: var(--white); margin-top: 14px; }
+    .dark-card p { color: rgba(255,255,255,0.84); font-size: 15px; line-height: 1.85; }
+
+    .problem-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .problem-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--card-2);
+      border: 1px solid #E8E1D4;
+      font-size: 14px;
+      line-height: 1.7;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .list-card ul { margin: 18px 0 0; padding-left: 18px; }
+    .list-card li { margin-bottom: 10px; font-size: 15px; line-height: 1.8; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .service-card {
+      padding: 24px;
+      min-height: 100%;
+    }
+
+    .service-card.featured {
+      background: var(--canopy);
+      color: var(--white);
+      border-color: var(--canopy);
+      box-shadow: 0 16px 42px rgba(31,77,58,0.15);
+    }
+
+    .service-kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--jade);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .featured .service-kicker { color: var(--gold); }
+
+    .service-name {
+      margin-top: 14px;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--canopy);
+    }
+
+    .featured .service-name,
+    .featured .service-price { color: var(--white); }
+
+    .service-price {
+      margin-top: 14px;
+      font-size: 42px;
+      color: var(--canopy);
+      line-height: 1;
+    }
+
+    .service-points {
+      margin: 18px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .service-points li {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #33453C;
+    }
+
+    .featured .service-points li { color: rgba(255,255,255,0.84); }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .mist-card {
+      background: var(--mist);
+      border: 1px solid #D4DED7;
+      border-radius: 30px;
+      padding: 32px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .step-card {
+      padding: 22px;
+      min-height: 160px;
+    }
+
+    .step-no {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--jade);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .step-title {
+      margin-top: 12px;
+      font-size: 24px;
+      color: var(--canopy);
+      line-height: 1.18;
+    }
+
+    .cta-panel {
+      background: var(--canopy);
+      color: var(--white);
+      border-radius: 34px;
+      padding: 42px;
+      margin: 24px 0 56px;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .cta-box {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      border-radius: 26px;
+      padding: 24px;
+    }
+
+    .cta-box p, .cta-box li {
+      color: rgba(255,255,255,0.84);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .cta-box ul { margin: 0; padding-left: 18px; }
+
+    .btn-gold {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--gold);
+      color: #1F2A23;
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-size: 15px;
+      border: 0;
+    }
+
+    .btn-gold:hover { opacity: 0.95; }
+
+    .footer {
+      padding: 0 0 38px;
+      font-size: 13px;
+      color: #55675C;
+      text-align: center;
+    }
+
+    @media (max-width: 1080px) {
+      .grid-hero,
+      .split,
+      .method-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav { display: none; }
+      .hero { padding-top: 48px; }
+      .principles,
+      .problem-grid,
+      .services-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .card,
+      .dark-card,
+      .mist-card,
+      .cta-panel { padding: 24px; }
+      .brand-title { font-size: 25px; }
+      .lead { font-size: 18px; }
+      .service-price { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-title">VietnamLanding</div>
+        <div class="brand-sub">Independent entry intelligence for foreign buyers</div>
+      </div>
+      <nav class="nav">
+        <a href="#focus">Focus</a>
+        <a href="#services">Services</a>
+        <a href="#method">Method</a>
+        <a href="#apply">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid-hero">
+        <div>
+          <div class="eyebrow sans">
+            <span class="eyebrow-dot"></span>
+            English-first launch · buyer-side only · no developer commissions
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#focus" className="hover:text-[#1F4D3A]">Focus</a>
-            <a href="#services" className="hover:text-[#1F4D3A]">Services</a>
-            <a href="#method" className="hover:text-[#1F4D3A]">Method</a>
-            <a href="#apply" className="hover:text-[#1F4D3A]">Apply</a>
+          <h1>
+            Vietnam, approached
+            <span>with clarity before commitment.</span>
+          </h1>
+          <p class="lead sans">
+            VietnamLanding is a premium intelligence and coordination platform for foreign buyers,
+            founders, and relocating families who want to understand what is actually possible in Vietnam
+            before they waste money, time, or trust.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#apply">Request a private review</a>
+            <a class="btn btn-secondary" href="#services">View service tiers</a>
+          </div>
+          <div class="principles">
+            <div class="pill-card sans">Fee-based. No developer commissions.</div>
+            <div class="pill-card sans">Buyer-side intelligence, not broker pressure.</div>
+            <div class="pill-card sans">English-first, international, selective.</div>
+            <div class="pill-card sans">Execution handled by licensed Vietnamese professionals where required.</div>
+          </div>
+        </div>
+
+        <div class="card side-card">
+          <div class="kicker">Why this exists</div>
+          <h2>The market is full of access. It is missing accountability.</h2>
+          <p class="sans">
+            Most foreign buyers entering Vietnam are shown projects before they are shown the real risks:
+            quota friction, legal structure ambiguity, title uncertainty, broker conflicts, and the cost of
+            getting one major decision wrong.
+          </p>
+          <p class="sans">
+            We do not sell units. We do not represent developers. We do not promise outcomes we cannot
+            legally control. We build the decision layer that should exist before any serious move is made.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus" class="block">
+      <div class="container split">
+        <div class="dark-card">
+          <div class="section-kicker">Flagship market focus</div>
+          <h2>Làng Vân / Hải Vân Bay as a live case, not a blind recommendation.</h2>
+          <p>
+            We begin with one of Vietnam’s most visually compelling new coastal developments because it
+            captures the real tension of this market: scale, beauty, timing, ambition — and the need for
+            independent verification before enthusiasm turns into exposure.
+          </p>
+          <p>
+            Our role is not to push clients into a project. Our role is to frame what must be checked, what can
+            be known, what remains unclear, and when licensed local professionals must take over.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="section-kicker">What foreign buyers keep facing</div>
+          <div class="problem-grid">
+            <div class="problem-item">Foreign quota issues discovered too late</div>
+            <div class="problem-item">Projects marketed beautifully but legally framed poorly</div>
+            <div class="problem-item">No reliable price benchmark for negotiation</div>
+            <div class="problem-item">Pink Book expectations misunderstood</div>
+            <div class="problem-item">Broker incentives misaligned with the buyer</div>
+            <div class="problem-item">Time and money wasted on exploratory trips with no decision framework</div>
           </div>
         </div>
       </div>
+    </section>
 
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(110,159,141,0.22),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(31,77,58,0.12),transparent_32%)]" />
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28 relative">
-          <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#C8A96B]/40 bg-white/50 px-4 py-2 text-sm text-[#1F4D3A]">
-                <span className="h-2 w-2 rounded-full bg-[#C8A96B]" />
-                English-first launch · buyer-side only · no developer commissions
-              </div>
-              <h1 className="mt-6 text-5xl md:text-7xl font-serif leading-[0.96] text-[#1F4D3A]">
-                Vietnam, approached
-                <span className="block text-[#23332B]">with clarity before commitment.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg md:text-xl leading-8 text-[#33453C]">
-                VietnamLanding is a premium intelligence and coordination layer for foreign individuals,
-                founders, and relocating families who want to understand what is actually possible in
-                Vietnam before they waste money, time, or trust.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#apply" className="rounded-2xl bg-[#1F4D3A] px-6 py-4 text-white shadow-sm hover:opacity-95 transition">
-                  Request a private review
-                </a>
-                <a href="#services" className="rounded-2xl border border-[#1F4D3A] px-6 py-4 text-[#1F4D3A] hover:bg-[#1F4D3A]/5 transition">
-                  View service tiers
-                </a>
-              </div>
-              <div className="mt-10 grid sm:grid-cols-2 gap-4 max-w-3xl">
-                {principles.map((item) => (
-                  <div key={item} className="rounded-2xl border border-[#D8D1C4] bg-white/60 px-5 py-4 text-sm leading-6">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-[#D8D1C4] bg-white/70 p-7 shadow-sm">
-              <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">Why this exists</div>
-              <div className="mt-4 text-2xl font-serif text-[#1F4D3A]">The market is full of access. It is missing accountability.</div>
-              <div className="mt-5 space-y-4 text-[15px] leading-7 text-[#33453C]">
-                <p>
-                  Most foreign buyers entering Vietnam are shown projects before they are shown the real
-                  risks: quota friction, legal structure ambiguity, title uncertainty, broker conflicts,
-                  and the cost of getting one major decision wrong.
-                </p>
-                <p>
-                  We do not sell units. We do not represent developers. We do not promise outcomes we
-                  cannot legally control. We build the decision layer that should exist before any serious
-                  move is made.
-                </p>
-              </div>
-            </div>
-          </div>
+    <section class="block">
+      <div class="container split">
+        <div class="card list-card">
+          <div class="section-kicker">What we do</div>
+          <ul>
+            <li>Market intelligence and project framing for foreign entrants</li>
+            <li>Foreign-buyer eligibility mapping and issue spotting</li>
+            <li>Due diligence coordination before trips, deposits, or emotional commitment</li>
+            <li>Residency and relocation pathway orientation</li>
+            <li>Introductions to licensed Vietnamese professionals where execution requires them</li>
+          </ul>
         </div>
-      </section>
-
-      <section id="focus" className="mx-auto max-w-7xl px-6 py-8 lg:py-14">
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="rounded-[2rem] bg-[#1F4D3A] p-8 text-white">
-            <div className="text-sm uppercase tracking-[0.22em] text-[#C8A96B]">Flagship market focus</div>
-            <h2 className="mt-4 text-4xl font-serif leading-tight">Làng Vân / Hải Vân Bay as a live case, not a blind recommendation.</h2>
-            <p className="mt-5 text-white/85 leading-7">
-              We begin with one of Vietnam’s most visually compelling new coastal developments because it
-              captures the real tension of this market: scale, beauty, timing, ambition — and the need
-              for independent verification before enthusiasm turns into exposure.
-            </p>
-            <p className="mt-4 text-white/85 leading-7">
-              Our role is not to push clients into a project. Our role is to frame what must be checked,
-              what can be known, what remains unclear, and when licensed local professionals must take over.
-            </p>
-          </div>
-
-          <div className="rounded-[2rem] border border-[#D8D1C4] bg-white/70 p-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">What foreign buyers keep facing</div>
-            <div className="mt-5 grid sm:grid-cols-2 gap-3">
-              {problems.map((problem) => (
-                <div key={problem} className="rounded-2xl bg-[#F8F5EE] border border-[#E8E1D4] px-4 py-4 text-sm leading-6">
-                  {problem}
-                </div>
-              ))}
-            </div>
-          </div>
+        <div class="card list-card" style="background: var(--card-2);">
+          <div class="section-kicker">What we do not do</div>
+          <ul>
+            <li>We are not a real estate broker</li>
+            <li>We do not take developer commissions</li>
+            <li>We do not guarantee legal outcomes or ownership results</li>
+            <li>We do not handle client funds or reservations</li>
+            <li>We do not replace licensed Vietnamese legal, tax, or brokerage execution</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-8 lg:py-14">
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="rounded-[2rem] border border-[#D8D1C4] bg-white/70 p-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">What we do</div>
-            <ul className="mt-5 space-y-4 text-[15px] leading-7 text-[#33453C]">
-              <li>• Market intelligence and project framing for foreign entrants</li>
-              <li>• Foreign-buyer eligibility mapping and issue spotting</li>
-              <li>• Due diligence coordination before trips, deposits, or emotional commitment</li>
-              <li>• Residency and relocation pathway orientation</li>
-              <li>• Introductions to licensed Vietnamese professionals where execution requires them</li>
+    <section id="services" class="block">
+      <div class="container">
+        <div class="section-kicker">Service architecture</div>
+        <h2 class="section-title">Structured enough to protect capital. Focused enough to stay honest.</h2>
+        <p class="section-copy sans">
+          We price by clarity, preparation, and complexity — not by sales pressure. The cost of a wrong move in
+          Vietnam is rarely just the property. It is the wasted trip, the wrong legal frame, the false confidence,
+          the broker conflict, and the months lost.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-kicker">A fast strategic entry point</div>
+            <div class="service-name">Initial Intelligence Brief</div>
+            <div class="service-price">$850</div>
+            <ul class="service-points">
+              <li>City or project-first orientation memo</li>
+              <li>Foreign-buyer framework summary</li>
+              <li>Risk flags before any trip or deposit</li>
+              <li>Best for early-stage buyers and relocating families</li>
             </ul>
-          </div>
-          <div className="rounded-[2rem] border border-[#D8D1C4] bg-[#F8F5EE] p-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">What we do not do</div>
-            <ul className="mt-5 space-y-4 text-[15px] leading-7 text-[#33453C]">
-              <li>• We are not a real estate broker</li>
-              <li>• We do not take developer commissions</li>
-              <li>• We do not guarantee legal outcomes or ownership results</li>
-              <li>• We do not handle client funds or reservations</li>
-              <li>• We do not replace licensed Vietnamese legal, tax, or brokerage execution</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+          </article>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-8 lg:py-16">
-        <div className="max-w-3xl">
-          <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">Service architecture</div>
-          <h2 className="mt-4 text-4xl md:text-5xl font-serif text-[#1F4D3A]">Structured enough to protect capital. Focused enough to stay honest.</h2>
-          <p className="mt-5 text-lg leading-8 text-[#33453C]">
-            We price by clarity, preparation, and complexity — not by sales pressure. The cost of a wrong
-            move in Vietnam is rarely just the property. It is the wasted trip, the wrong legal frame, the
-            false confidence, the broker conflict, and the months lost.
+          <article class="service-card">
+            <div class="service-kicker">When a specific project is already on the table</div>
+            <div class="service-name">Project Due Diligence Review</div>
+            <div class="service-price">$3,500+</div>
+            <ul class="service-points">
+              <li>Developer and project intelligence review</li>
+              <li>Foreign-eligibility and quota logic mapping</li>
+              <li>Title / Pink Book / structure risk questions</li>
+              <li>Written issue-spotting memo for your lawyer</li>
+            </ul>
+          </article>
+
+          <article class="service-card featured">
+            <div class="service-kicker">Our core premium route</div>
+            <div class="service-name">Navigator Engagement</div>
+            <div class="service-price">from $7,500</div>
+            <ul class="service-points">
+              <li>Property + residency + setup coordination</li>
+              <li>Shortlist review and market positioning</li>
+              <li>Licensed-partner coordination in Vietnam</li>
+              <li>For serious buyers, founders, and relocating households</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-kicker">For more complex entries</div>
+            <div class="service-name">Private Mandate</div>
+            <div class="service-price">from $9,500</div>
+            <ul class="service-points">
+              <li>Multi-step relocation and acquisition support</li>
+              <li>Higher-complexity family or founder pathways</li>
+              <li>Extended coordination horizon</li>
+              <li>Limited intake, custom scope only</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="block">
+      <div class="container method-grid">
+        <div class="mist-card">
+          <div class="section-kicker">Method</div>
+          <h2 style="margin: 14px 0 0; font-size: 42px; line-height: 1.02; color: var(--canopy);">Due diligence first. Movement second.</h2>
+          <p class="sans" style="margin-top: 16px; font-size: 15px; line-height: 1.85; color: #33453C;">
+            Our process exists to slow down the wrong decisions before they become expensive. We do not begin with
+            inventory. We begin with fit, law, timing, and exposure.
           </p>
         </div>
-        <div className="mt-10 grid lg:grid-cols-4 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.name}
-              className={`rounded-[2rem] border p-6 ${service.featured ? "bg-[#1F4D3A] text-white border-[#1F4D3A] shadow-lg" : "bg-white/70 border-[#D8D1C4]"}`}
-            >
-              <div className={`text-sm uppercase tracking-[0.22em] ${service.featured ? "text-[#C8A96B]" : "text-[#6E9F8D]"}`}>{service.subtitle}</div>
-              <div className="mt-4 text-2xl font-serif">{service.name}</div>
-              <div className={`mt-4 text-4xl font-serif ${service.featured ? "text-white" : "text-[#1F4D3A]"}`}>{service.price}</div>
-              <div className={`mt-5 space-y-3 text-sm leading-6 ${service.featured ? "text-white/85" : "text-[#33453C]"}`}>
-                {service.points.map((point) => (
-                  <div key={point}>• {point}</div>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-no">Step 1</div>
+            <div class="step-title">Qualification and strategic intake</div>
+          </div>
+          <div class="step-card">
+            <div class="step-no">Step 2</div>
+            <div class="step-title">Market and project framing</div>
+          </div>
+          <div class="step-card">
+            <div class="step-no">Step 3</div>
+            <div class="step-title">Foreign-buyer eligibility review</div>
+          </div>
+          <div class="step-card">
+            <div class="step-no">Step 4</div>
+            <div class="step-title">Risk memo and document map</div>
+          </div>
+          <div class="step-card">
+            <div class="step-no">Step 5</div>
+            <div class="step-title">Licensed local partner coordination</div>
+          </div>
+          <div class="step-card">
+            <div class="step-no">Step 6</div>
+            <div class="step-title">Decision support before money moves</div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="method" className="mx-auto max-w-7xl px-6 py-8 lg:py-16">
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
-          <div className="rounded-[2rem] bg-[#E9EFEA] border border-[#D4DED7] p-8">
-            <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">Method</div>
-            <h3 className="mt-4 text-3xl font-serif text-[#1F4D3A]">Due diligence first. Movement second.</h3>
-            <p className="mt-5 text-[15px] leading-7 text-[#33453C]">
-              Our process exists to slow down the wrong decisions before they become expensive. We do not
-              begin with inventory. We begin with fit, law, timing, and exposure.
+    <section class="block">
+      <div class="container split">
+        <div class="card">
+          <div class="section-kicker">Who this is for</div>
+          <h2 style="margin: 14px 0 0; font-size: 40px; line-height: 1.05; color: var(--canopy);">Not everyone entering Vietnam needs this. Serious entrants usually do.</h2>
+          <p class="sans">For foreign buyers who do not want to rely on commission-led explanations.</p>
+          <p class="sans">For founders or families evaluating a longer positioning move into Vietnam.</p>
+          <p class="sans">For people who understand that avoiding one bad decision can pay for the advisory many times over.</p>
+        </div>
+        <div class="card">
+          <div class="section-kicker">Scope discipline</div>
+          <p class="sans">
+            VietnamLanding is an independent advisory and coordination service. It is not legal advice, not brokerage,
+            and not an investment recommendation.
+          </p>
+          <p class="sans">
+            Where execution requires licensed Vietnamese professionals — legal, brokerage, notarial, tax, or formal
+            filing — those functions must be handled by properly qualified local parties.
+          </p>
+          <p class="sans">
+            Our job is to help clients arrive at the right decision architecture before money moves.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="block">
+      <div class="container cta-panel">
+        <div class="cta-grid">
+          <div>
+            <div class="section-kicker" style="color: var(--gold);">Private intake</div>
+            <h2 style="margin: 14px 0 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.03; color: white;">Request a confidential first review.</h2>
+            <p class="sans" style="margin-top: 16px; font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.84);">
+              The first version of VietnamLanding is designed as a selective advisory entry point, not a public listing
+              portal. If your objective is serious, structured, and time-sensitive, this is where the conversation begins.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {process.map((step, index) => (
-              <div key={step} className="rounded-[1.75rem] border border-[#D8D1C4] bg-white/70 p-6">
-                <div className="text-xs uppercase tracking-[0.22em] text-[#6E9F8D]">Step {index + 1}</div>
-                <div className="mt-3 text-lg font-serif text-[#1F4D3A]">{step}</div>
-              </div>
-            ))}
+          <div class="cta-box">
+            <ul>
+              <li>Initial engagement starts with a short qualification intake.</li>
+              <li>English-first launch.</li>
+              <li>Korean planned as the first secondary language.</li>
+              <li>Direct developer commissions: none.</li>
+            </ul>
+            <a class="btn-gold" href="mailto:hello@vietnamlanding.com?subject=VietnamLanding%20Private%20Review">Apply for intake review</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <section className="mx-auto max-w-7xl px-6 py-8 lg:py-16">
-        <div className="rounded-[2rem] border border-[#D8D1C4] bg-white/70 p-8 lg:p-10">
-          <div className="grid lg:grid-cols-2 gap-10">
-            <div>
-              <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">Who this is for</div>
-              <h3 className="mt-4 text-3xl font-serif text-[#1F4D3A]">Not everyone entering Vietnam needs this. Serious entrants usually do.</h3>
-              <div className="mt-6 space-y-4 text-[15px] leading-7 text-[#33453C]">
-                <p>For foreign buyers who do not want to rely on commission-led explanations.</p>
-                <p>For founders or families evaluating a longer positioning move into Vietnam.</p>
-                <p>For people who understand that avoiding one bad decision can pay for the advisory many times over.</p>
-              </div>
-            </div>
-            <div>
-              <div className="text-sm uppercase tracking-[0.22em] text-[#6E9F8D]">Scope discipline</div>
-              <div className="mt-6 space-y-4 text-[15px] leading-7 text-[#33453C]">
-                <p>
-                  VietnamLanding is an independent advisory and coordination service. It is not legal advice,
-                  not brokerage, and not an investment recommendation.
-                </p>
-                <p>
-                  Where execution requires licensed Vietnamese professionals — legal, brokerage, notarial,
-                  tax, or formal filing — those functions must be handled by properly qualified local parties.
-                </p>
-                <p>
-                  Our job is to help clients arrive at the right decision architecture before money moves.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="apply" className="mx-auto max-w-7xl px-6 py-8 lg:py-20">
-        <div className="rounded-[2.2rem] bg-[#1F4D3A] p-10 lg:p-14 text-white">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-            <div>
-              <div className="text-sm uppercase tracking-[0.22em] text-[#C8A96B]">Private intake</div>
-              <h2 className="mt-4 text-4xl md:text-5xl font-serif leading-tight">Request a confidential first review.</h2>
-              <p className="mt-5 max-w-2xl text-white/85 text-lg leading-8">
-                The first version of VietnamLanding is designed as a selective advisory entry point, not a
-                public listing portal. If your objective is serious, structured, and time-sensitive, this is
-                where the conversation begins.
-              </p>
-            </div>
-            <div className="rounded-[1.75rem] bg-white/10 border border-white/15 p-6">
-              <div className="space-y-4 text-sm text-white/85">
-                <div>Initial engagement starts with a short qualification intake.</div>
-                <div>English-first launch.</div>
-                <div>Korean planned as the first secondary language.</div>
-                <div>Direct developer commissions: none.</div>
-              </div>
-              <button className="mt-6 w-full rounded-2xl bg-[#C8A96B] px-5 py-4 text-[#1F2A23] font-medium hover:opacity-95 transition">
-                Apply for intake review
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
+  <footer class="footer sans">
+    VietnamLanding — independent entry intelligence for foreign buyers, founders, and relocating families entering Vietnam.
+  </footer>
+</body>
+</html>

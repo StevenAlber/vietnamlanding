@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — VietnamLanding</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f2e9;
+      --ink: #121a17;
+      --ink-soft: #31403a;
+      --muted: #4a5c54;
+      --emerald-deep: #0b1714;
+      --emerald-rich: #17382c;
+      --gold: #c09b5e;
+      --gold-soft: #ddc9a3;
+      --line: rgba(18, 26, 23, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    p, a { font-family: "Inter", Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .kicker {
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    h1 {
+      margin: 16px 0 0;
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--emerald-deep);
+      font-weight: 600;
+    }
+    .message {
+      margin: 20px auto 0;
+      max-width: 480px;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 14px;
+      background: var(--emerald-rich);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .back-btn:hover {
+      background: var(--emerald-deep);
+      transform: translateY(-1px);
+    }
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold-soft);
+      border: none;
+      margin: 32px auto 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="kicker">Intake received</div>
+  <h1>Thank you.</h1>
+  <p class="message">Your request has been received. VietnamLanding will review your intake and respond within 2 business days. If your inquiry is urgent, this will be reflected in our prioritization.</p>
+  <a href="/" class="back-btn">Return to VietnamLanding</a>
+  <hr class="gold-line">
+</body>
+</html>

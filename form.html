@@ -420,7 +420,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn-submit">Submit intake request</button>
+          <button type="submit" class="btn-submit" onclick="return validateForm()">Submit intake request</button>
 
           <p class="form-note">
             Your information is confidential and used only for intake qualification.
@@ -435,5 +435,25 @@
   <footer class="footer sans">
     VietnamLanding — independent entry intelligence for foreign buyers, founders, and relocating families entering Vietnam.
   </footer>
+
+  <script>
+  function validateForm() {
+    var fields = document.querySelectorAll('[required]');
+    var first = null;
+    fields.forEach(function(f) {
+      f.style.borderColor = '';
+      if (!f.value) {
+        f.style.borderColor = '#c0785e';
+        if (!first) first = f;
+      }
+    });
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      alert('Please fill in all required fields.');
+      return false;
+    }
+    return true;
+  }
+  </script>
 </body>
 </html>

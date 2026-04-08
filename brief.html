@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Initial Intelligence Brief — VietnamLanding</title>
+  <meta name="description" content="A fast strategic entry point for foreign buyers exploring Vietnam." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f2e9;
+      --bg-soft: #eee4d6;
+      --ink: #121a17;
+      --ink-soft: #31403a;
+      --muted: #4a5c54;
+      --emerald-deep: #0b1714;
+      --emerald-rich: #17382c;
+      --gold: #c09b5e;
+      --gold-soft: #ddc9a3;
+      --line: rgba(18,26,23,0.08);
+      --line-gold: rgba(192,155,94,0.26);
+      --shadow-card: 0 18px 44px rgba(9,18,15,0.08);
+      --shadow-deep: 0 34px 92px rgba(9,18,15,0.22);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;-webkit-font-smoothing:antialiased}
+    p,a,li,button,.sans,.kicker,.meta{font-family:"Inter",Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(800px,calc(100% - 40px));margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:60;background:rgba(247,242,233,0.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(18,26,23,0.06)}
+    .header-inner{width:min(1200px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:31px;font-weight:600;color:var(--emerald-deep);letter-spacing:-0.03em}
+    .back-link{font-size:14px;font-weight:500;color:var(--muted);transition:color 0.2s}
+    .back-link:hover{color:var(--emerald-rich)}
+    .hero-section{padding:64px 0 48px;text-align:center}
+    .kicker{font-size:10px;text-transform:uppercase;letter-spacing:0.09em;font-weight:600;color:var(--gold)}
+    .hero-section h1{margin:14px 0 0;font-size:clamp(36px,5vw,56px);line-height:1.05;letter-spacing:-0.03em;color:var(--emerald-deep);font-weight:600}
+    .hero-section .price{margin:20px 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(42px,6vw,64px);font-weight:300;color:var(--emerald-rich);font-variant-numeric:oldstyle-nums;letter-spacing:-0.03em}
+    .hero-section .price-note{font-size:14px;color:var(--muted);margin-top:6px}
+    .hero-section .lead{margin:20px auto 0;max-width:620px;font-size:17px;line-height:1.72;color:var(--ink-soft)}
+    .content-card{background:rgba(255,255,255,0.84);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-card);backdrop-filter:blur(8px);padding:40px;margin-bottom:32px}
+    .content-card h2{font-size:28px;font-weight:600;color:var(--emerald-deep);letter-spacing:-0.02em;margin:0 0 16px}
+    .content-card p{font-size:15px;line-height:1.65;color:var(--ink-soft);margin:0 0 12px}
+    .content-card ul{margin:12px 0 0;padding-left:18px}
+    .content-card li{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:8px}
+    .dark-card{background:linear-gradient(160deg,#1a4032 0%,#143026 100%);color:#fff;border:1px solid rgba(192,155,94,0.30);border-radius:28px;padding:40px;margin-bottom:32px;box-shadow:var(--shadow-deep)}
+    .dark-card h2{color:#fff;font-size:28px;font-weight:600;letter-spacing:-0.02em;margin:0 0 16px}
+    .dark-card p{color:rgba(255,255,255,0.82);font-size:15px;line-height:1.65;margin:0 0 12px}
+    .dark-card ul{margin:12px 0 0;padding-left:18px}
+    .dark-card li{color:rgba(255,255,255,0.82);font-size:15px;line-height:1.65;margin-bottom:8px}
+    .dark-card .kicker{color:var(--gold-soft)}
+    .cta-section{text-align:center;padding:16px 0 64px}
+    .btn-pay{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 36px;border-radius:16px;background:linear-gradient(135deg,#e0c895,var(--gold));color:#18211d;font-family:"Inter",Arial,sans-serif;font-size:16px;font-weight:700;border:0;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 14px 34px rgba(192,155,94,0.22);text-decoration:none}
+    .btn-pay:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(192,155,94,0.28)}
+    .btn-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:14px;background:transparent;color:var(--emerald-rich);border:1px solid var(--line-gold);font-size:14px;font-weight:600;margin-top:14px;transition:background 0.2s}
+    .btn-secondary:hover{background:rgba(255,255,255,0.6)}
+    .note{margin-top:20px;font-size:12px;line-height:1.6;color:var(--muted);max-width:480px;margin-left:auto;margin-right:auto}
+    .divider{width:60px;height:2px;background:var(--gold-soft);border:none;margin:32px auto}
+    .footer{padding:32px 0;text-align:center;color:var(--muted);font-size:13px}
+    @media(max-width:760px){
+      .hero-section{padding:44px 0 32px}
+      .content-card,.dark-card{padding:24px;border-radius:20px}
+      .brand-title{font-size:26px}
+    }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand-title">VietnamLanding</a>
+      <a href="/" class="back-link sans">← Back to overview</a>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+
+      <div class="hero-section">
+        <div class="kicker sans">A fast strategic entry point</div>
+        <h1>Initial Intelligence Brief</h1>
+        <div class="price">$850</div>
+        <div class="price-note sans">One-time engagement · Delivered within 5 business days</div>
+        <p class="lead sans">Before you book a flight, wire a deposit, or trust a broker's enthusiasm — understand what is actually in front of you. This is where clarity begins.</p>
+      </div>
+
+      <div class="content-card">
+        <h2>What you receive</h2>
+        <ul>
+          <li>A written orientation memo tailored to your specific city, region, or project of interest</li>
+          <li>Foreign-buyer eligibility framework for your nationality and legal situation</li>
+          <li>Key risk flags identified before any trip, deposit, or emotional commitment</li>
+          <li>A clear summary of what can be legally owned, what cannot, and what remains ambiguous</li>
+          <li>Actionable next-step recommendations based on your timeline and objectives</li>
+        </ul>
+      </div>
+
+      <div class="content-card">
+        <h2>Who this is for</h2>
+        <p>You are considering Vietnam for the first time — perhaps a property purchase, a relocation, or an investment move. You have seen beautiful marketing but no independent analysis. You want to understand the real landscape before spending serious money or time.</p>
+        <p>This brief is designed for early-stage buyers, relocating families, and founders who want a decision-quality overview — not a sales pitch.</p>
+      </div>
+
+      <div class="dark-card">
+        <div class="kicker">Why this matters</div>
+        <h2>The cost of entering Vietnam without preparation is not theoretical.</h2>
+        <p>Foreign buyers routinely lose $10,000–$50,000 on misunderstood legal structures, quota issues discovered too late, or deposits made under broker pressure before basic verification.</p>
+        <p>This brief costs a fraction of one bad decision. It is designed to prevent the most common and most expensive mistakes foreign buyers make in this market.</p>
+      </div>
+
+      <div class="cta-section">
+        <hr class="divider">
+        <a href="https://buy.stripe.com/00w6oH3drdhP6ve4xWasg0g" class="btn-pay">Purchase Intelligence Brief — $850</a>
+        <br>
+        <a href="/form.html" class="btn-secondary sans">Or request intake review first</a>
+        <p class="note sans">
+          Payment is processed securely via Stripe. After payment, VietnamLanding will contact you
+          within 1 business day to confirm scope and begin work. All engagements are subject to our
+          standard terms of service.
+        </p>
+      </div>
+
+    </div>
+  </main>
+  <footer class="footer sans">
+    VietnamLanding — independent entry intelligence for foreign buyers, founders, and relocating families entering Vietnam.
+  </footer>
+</body>
+</html>

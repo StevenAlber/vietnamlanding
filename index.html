@@ -916,18 +916,14 @@
           </div>
         </div>
 
-        <div class="hero-side card">
-          <div class="kicker">Why this exists</div>
-          <h2>The market is full of invitations. It is missing clear judgment.</h2>
-          <p>
-            Most foreign buyers entering Vietnam are shown projects before they are shown the real risks:
-            quota friction, legal structure ambiguity, title uncertainty, broker conflicts, and the cost of
-            getting one major decision wrong.
-          </p>
-          <p>
-            We do not sell units. We do not represent developers. We do not promise outcomes we cannot legally
-            control. We build the decision layer that should exist before any serious move is made.
-          </p>
+        <div class="hero-side card" style="padding:0;overflow:hidden;position:relative;cursor:pointer;" id="videoCard" onclick="playVideo()">
+          <video id="introVideo" poster="/vietnamlanding-poster.jpg" preload="metadata" playsinline
+            style="width:100%;height:100%;object-fit:cover;display:block;min-height:100%;">
+            <source src="/vietnamlanding-intro.mp4" type="video/mp4">
+          </video>
+          <div id="playBtn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.18);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:opacity 0.4s ease,transform 0.3s ease;">
+            <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M2 1.5L18 12L2 22.5V1.5Z" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
         </div>
       </div>
     </section>
@@ -1202,6 +1198,29 @@
       mobileNav.classList.remove('open');
       document.body.style.overflow = '';
     }
+
+    function playVideo() {
+      const video = document.getElementById('introVideo');
+      const btn = document.getElementById('playBtn');
+      if (video.paused) {
+        video.play();
+        btn.style.opacity = '0';
+        btn.style.transform = 'translate(-50%,-50%) scale(0.8)';
+        video.setAttribute('controls', '');
+      } else {
+        video.pause();
+        btn.style.opacity = '1';
+        btn.style.transform = 'translate(-50%,-50%) scale(1)';
+        video.removeAttribute('controls');
+      }
+    }
+
+    document.getElementById('introVideo').addEventListener('ended', function() {
+      const btn = document.getElementById('playBtn');
+      btn.style.opacity = '1';
+      btn.style.transform = 'translate(-50%,-50%) scale(1)';
+      this.removeAttribute('controls');
+    });
   </script>
 </body>
 </html>
